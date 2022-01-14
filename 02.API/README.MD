@@ -37,6 +37,36 @@ Naszą bazą danych będzie plik w formacie JSON. Pierwszym zadaniem jest utworz
 }
 ```
 
+Tak początkowo wyglądać będzie nasza baza danych. Potrzebujemy domyślnych wartości, aby upewnić się, że API, które zaraz napiszemy, będzie działać.
+
+Kolejnym etapem jest zainicjowanie API.
+
+`/pages/api/graphql.js`
+
+```js
+import { ApolloServer } from "apollo-server-micro";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
+import { typeDefs } from "./schemas";
+import { resolvers } from "./resolvers";
+
+const apolloServer = new ApolloServer();
+
+const startServer = apolloServer.start();
+
+export default async function handler(req, res) {
+  await startServer;
+  await apolloServer.createHandler({
+    path: "/api/graphql",
+  })(req, res);
+}
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+```
+
 ### UWAGA
 
 Aplikację będziemy pisać na składni `Typescript`, ale dla uproszczenia, API napiszemy w `Javascript`. Pisanie własnego API to i tak ciężkie zadanie, dlatego na potrzeby lekcji ułatwimy to.
