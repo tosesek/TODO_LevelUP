@@ -122,8 +122,8 @@ import getDirectories from "./directories";
 
 const resolvers = {
   Query: {
-    todos: getTodos,
-    directories: getDirectories,
+    getTodos: getTodos,
+    getDirectories: getDirectories,
   },
 };
 export default resolvers;
@@ -131,8 +131,64 @@ export default resolvers;
 
 Jak pewnie się domyślacie, potrzebne będą jeszcze 2 pliki. To w nich będzie się działa cała 'magia' :sparkles:
 
+Zajmiemy się plikiem `/pages/api/resolvers/todos.js`
+
+```js
+let data = require("../data/data.json");
+const todos = () => {
+  return data.todos;
+};
+export default todos;
+```
+
+Powyższy kod nie robi nic innego jak importuje nasz plik danych, oraz zwraca listę todos. Na początek to nam wystarczy.
+
+Analogicznie piszemy plik `/pages/api/resolvers/directories.js`
+
+```js
+let data = require("../data/data.json");
+const directories = () => {
+  return data.directories;
+};
+export default directories;
+```
+
+Teraz najważniejsze pytanie.
+
+### Czy to już działa?
+
+Odpowiedź brzmi:
+
+### TAK!
+
+Otwórz [http://localhost:3000/api/graphql](http://localhost:3000/api/graphql) i sprawdź sam!
+
+Wystarczy, że wpiszesz te zapytania:
+
+```gql
+query Dirs {
+  getDirectories {
+    id
+    name
+  }
+}
+query Todos {
+  getTodos {
+    id
+    title
+    desc
+    date
+    done
+  }
+}
+```
+
 ### UWAGA
 
 Aplikację będziemy pisać na składni `Typescript`, ale dla uproszczenia, API napiszemy w `Javascript`. Pisanie własnego API to i tak ciężkie zadanie, dlatego na potrzeby lekcji ułatwimy to. Sprawdzaniem poprawności typów zmiennych zajmuje się za nas biblioteka `apollo-server-micro`.
 
 Dodatkowo API można rozbudować o system logowania, rejestracji oraz listę zadań osobną dla każdego użytkownika, jednak to zadanie pozostawiam chętnym.
+
+```
+
+```
