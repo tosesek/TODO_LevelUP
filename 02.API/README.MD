@@ -1,4 +1,4 @@
-# Projekt aplikacji :ballot_box_check:TODO
+Projekt aplikacji :ballot_box_with_check: TODO dla akademii programowania LevelUP
 # 02.API
 
 Każda większa aplikacja ma jakieś połączenie z bazą danych. Często odbywa się to poprzez komunikację z API. Postaramy się napisać własne API. Wykorzystamy w tym celu bibliotekę `apollo-server-micro`.
