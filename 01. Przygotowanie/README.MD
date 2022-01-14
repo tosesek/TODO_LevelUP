@@ -66,3 +66,5 @@ Możesz też sprawdzić oficjalne repozytorium [Next.js na GitHub](https://githu
 Najprostrzy sposób na wdrożenie aplikacji Next.js jest skorzystanie z [platformy Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) od twórców Next.js.
 
 Sprawdź [ dokumentację wdrażania aplikacji Next.js](https://nextjs.org/docs/deployment).
+
+Ale zanim to zrobisz, czeka cię sporo pracy. Powodzenia :punch:
