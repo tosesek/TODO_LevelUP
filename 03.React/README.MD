@@ -35,7 +35,7 @@ a {
 
 `/pages/index.tsx`
 
-```typescript
+```tsx
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -59,7 +59,7 @@ Małe wyjaśnienie. Znacznik `<Head>` to niestandardowy komponent z biblioteki `
 
 Nadszedł czas na pisanie własnych komponentów. Zaczniemy od prostego znacznika `<div></div>` ze zmienionym wyglądem.
 
-```typescript
+```tsx
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
@@ -79,7 +79,7 @@ Właśnie napisałeś, i użyłeś swojego pierwszego komponentu w :nail_care: s
 
 W ten sposób zrobimy jeszcze jeden komponent. Będzie nim tytuł strony.
 
-```typescript
+```tsx
 const StyledTitle = styled.div`
   position: relative;
   display: block;
