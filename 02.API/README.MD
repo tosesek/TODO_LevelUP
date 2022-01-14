@@ -40,6 +40,8 @@ Naszą bazą danych będzie plik w formacie JSON. Pierwszym zadaniem jest utworz
 
 Tak początkowo wyglądać będzie nasza baza danych. Potrzebujemy domyślnych wartości, aby upewnić się, że API, które zaraz napiszemy, będzie działać.
 
+W tym miejscu rezygnujemy z gotowej trasy API. Odpowiada za nią plik `/pages/api/hello.ts`. Po prostu usuwamy ten plik.
+
 Zanim zajmiemy się uruchomieniem naszego API, musimy dodać kilka wymaganych plików. Pierwszym z nich jest definicja schematów czyli tras i typów danych.
 
 `/pages/api/schemas/index.js`
