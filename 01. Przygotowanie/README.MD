@@ -1,4 +1,4 @@
-# Projekt aplikacji :ballot_box_check: TODO
+Projekt aplikacji :ballot_box_check: TODO dla akademii programowania LevelUP
 
 
 ## Zaczynamy!
