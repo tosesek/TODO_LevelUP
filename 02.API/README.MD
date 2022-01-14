@@ -6,8 +6,35 @@ Każda większa aplikacja ma jakieś połączenie z bazą danych. Często odbywa
 npm install -D apollo-server-micro micro graphql
 ```
 
-```bash
-npm install -D axios
+Naszą bazą danych będzie plik w formacie JSON. Pierwszym zadaniem jest utworzenie pliku odpowiedzialnego za przechowywanie danych.
+
+`/pages/api/data/data.json`
+
+```json
+{
+  "directories": [
+    { "id": 0, "name": "Dom" },
+    { "id": 1, "name": "Szkoła" }
+  ],
+  "todos": [
+    {
+      "id": 0,
+      "title": "Kartkówka z Angielskiego",
+      "desc": "Nauczyć się na kartkówkę ze słówek z działu Jedzenie",
+      "date": "15.02.2021",
+      "dir": "Szkoła",
+      "done": false
+    },
+    {
+      "id": 1,
+      "title": "Wypracowanie z Angielskiego",
+      "desc": "Napisać rozprawkę na jeden z tematów maturalnych z Polskiego",
+      "date": "15.02.2021",
+      "dir": "Szkoła",
+      "done": false
+    }
+  ]
+}
 ```
 
 ### UWAGA
