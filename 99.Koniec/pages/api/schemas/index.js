@@ -2,13 +2,13 @@ import { gql } from "apollo-server-micro";
 
 const typeDefs = gql`
   type directory {
-    id: ID
+    id: Int
     name: String
     todos: [todo]
   }
   type todo {
-    id: ID
-    title: String!
+    id: Int
+    title: String
     desc: String
     date: String
     done: Boolean
@@ -16,7 +16,7 @@ const typeDefs = gql`
 
   type Query {
     getDirectories: [directory]
-    getTodos(dirID: ID): [todo]
+    getTodos(dirID: Int!): [todo]
   }
 `;
 export default typeDefs;
