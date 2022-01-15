@@ -107,7 +107,7 @@ npm install -D apollo-server-micro micro graphql
 
 Naszą bazą danych będzie plik w formacie JSON. Pierwszym zadaniem jest utworzenie pliku odpowiedzialnego za przechowywanie danych.
 
-:file_folder:`/pages/api/data/data.json`
+`/pages/api/data/data.json`
 
 ```json
 {
@@ -120,8 +120,8 @@ Naszą bazą danych będzie plik w formacie JSON. Pierwszym zadaniem jest utworz
       "id": 0,
       "title": "Kartkówka z Angielskiego",
       "desc": "Nauczyć się na kartkówkę ze słówek z działu Jedzenie",
-      "date": "15.02.2021",
-      "dir": "Szkoła",
+      "date": "14.02.2021",
+      "dir": 1,
       "done": false
     },
     {
@@ -129,7 +129,15 @@ Naszą bazą danych będzie plik w formacie JSON. Pierwszym zadaniem jest utworz
       "title": "Wypracowanie z Angielskiego",
       "desc": "Napisać rozprawkę na jeden z tematów maturalnych z Polskiego",
       "date": "15.02.2021",
-      "dir": "Szkoła",
+      "dir": 1,
+      "done": false
+    },
+    {
+      "id": 3,
+      "title": "Zakupy",
+      "desc": "Zrobić zakupy, lista zakupów będzie przygotowana i przypięta na lodówce :D",
+      "date": "19.02.2021",
+      "dir": 0,
       "done": false
     }
   ]
@@ -142,22 +150,22 @@ W tym miejscu rezygnujemy z gotowej trasy API. Odpowiada za nią plik `/pages/ap
 
 Zanim zajmiemy się uruchomieniem naszego API, musimy dodać kilka wymaganych plików. Pierwszym z nich jest definicja schematów czyli tras i typów danych.
 
-:file_folder: `/pages/api/schemas/index.js`
+`/pages/api/schemas/index.js`
 
 ```js
 import { gql } from "apollo-server-micro";
 
-export const typeDefs = gql`
+const typeDefs = gql`
   type directory {
     id: ID
     name: String
+    todos: [todo]
   }
   type todo {
     id: ID
     title: String!
     desc: String
     date: String
-    dir: String!
     done: Boolean
   }
 
@@ -166,6 +174,7 @@ export const typeDefs = gql`
     getTodos(dirID: ID): [todo]
   }
 `;
+export default typeDefs;
 ```
 
 `type directory` oraz `type todo` są odzwierciedleniem naszego pliku `/pages/api/data/data.json`.
@@ -174,7 +183,7 @@ Określenie typu w nawiasach klamrowych, np. `[directory]`, mówi nam o tym, że
 
 Kolejnym etapem jest zainicjowanie API.
 
-:file_folder: `/pages/api/graphql.js`
+`/pages/api/graphql.js`
 
 ```js
 import { ApolloServer } from "apollo-server-micro";
@@ -215,8 +224,7 @@ Zwraca nam error. Próbujemy zaimportować zmienną `resolvers` z pliku, który 
 Zakładamy, że nasza aplikacja się rozrośnie w coś większego, dlatego 'odpowiedzi' API rozbijemy na mniejsze pliki.
 
 Głównym plikiem jest index. W nim zaimportujemy funkcje, które ma wykonać serwer, gdy zostanie o coś 'zapytany'.
-
-:file_folder: `/pages/api/resolvers/index.js`
+`/pages/api/resolvers/index.js`
 
 ```js
 import getTodos from "./todos";
@@ -224,32 +232,34 @@ import getDirectories from "./directories";
 
 const resolvers = {
   Query: {
-    getTodos: getTodos,
+    getTodos: (req, res) => getTodos(res.dirID),
     getDirectories: getDirectories,
   },
 };
 export default resolvers;
 ```
 
+`getTodos: (req, res) => getTodos(res.dirID),` wymaga takiego zapisu, ponieważ będziemy przesyłać zmienną do zapytania o zadania. `req` i `res` odnoszą się do protokołu HTTP: `request` i `response`. W `response` będzie przesłana nasza zmienna.
+
 Jak pewnie się domyślacie, potrzebne będą jeszcze 2 pliki. To w nich będzie się działa cała 'magia' :sparkles:
 
-Zajmiemy się plikiem
-
-:file_folder: `/pages/api/resolvers/todos.js`
+Zajmiemy się plikiem `/pages/api/resolvers/todos.js`
 
 ```js
 let data = require("../data/data.json");
-const todos = () => {
-  return data.todos;
+const todos = (dirID) => {
+  return data.todos.filter((todo) => {
+    if (todo.dir == dirID) {
+      return todo;
+    }
+  });
 };
 export default todos;
 ```
 
 Powyższy kod nie robi nic innego jak importuje nasz plik danych, oraz zwraca listę todos. Na początek to nam wystarczy.
 
-Analogicznie piszemy plik
-
-:file_folder: `/pages/api/resolvers/directories.js`
+Analogicznie piszemy plik `/pages/api/resolvers/directories.js`
 
 ```js
 let data = require("../data/data.json");
@@ -278,14 +288,22 @@ query Dirs {
     name
   }
 }
-query Todos {
-  getTodos {
+query Todos($id: Int!) {
+  getTodos(dirID: $id) {
     id
     title
     desc
     date
     done
   }
+}
+```
+
+Przy próbie wywołania zapytania `Todos` może wyświetlić się błąd. Wszytsko co musisz zrobić, to wpisać zmienną w zakładce na dole strony `QUERY VARIABLES`. Jak na razie nasza zmienna może przyjąć 2 wartości: 0 i 1. Spowodowane jest to tym, że nie mamy więcej katalogów w bazie. Wpisanie innej wartości zwróci nam pustą tablicę.
+
+```json
+{
+  "id": 0
 }
 ```
 

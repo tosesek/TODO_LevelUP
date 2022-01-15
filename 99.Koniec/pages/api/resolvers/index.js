@@ -4,7 +4,7 @@ let data = require("../data/data.json");
 
 const resolvers = {
   Query: {
-    getTodos: (_parent, args) => getTodos(args.dirID),
+    getTodos: (req, res) => getTodos(res.dirID),
     getDirectories: getDirectories,
   },
 };
