@@ -221,7 +221,7 @@ export default Home;
 Kolejnym krokiem jest napisanie komponentów, tym razem w składni Reacta.
 Pierwszym komponentem będzie lista katalogów.
 
-### UWAGA
+#### UWAGA
 
 Dobrą praktyką jest nazywanie komponentów wielką literą.
 

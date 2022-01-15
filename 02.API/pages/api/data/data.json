@@ -8,8 +8,8 @@
       "id": 0,
       "title": "Kartkówka z Angielskiego",
       "desc": "Nauczyć się na kartkówkę ze słówek z działu Jedzenie",
-      "date": "15.02.2021",
-      "dir": "Szkoła",
+      "date": "14.02.2021",
+      "dir": 1,
       "done": false
     },
     {
@@ -17,7 +17,15 @@
       "title": "Wypracowanie z Angielskiego",
       "desc": "Napisać rozprawkę na jeden z tematów maturalnych z Polskiego",
       "date": "15.02.2021",
-      "dir": "Szkoła",
+      "dir": 1,
+      "done": false
+    },
+    {
+      "id": 3,
+      "title": "Zakupy",
+      "desc": "Zrobić zakupy, lista zakupów będzie przygotowana na lodówce :D",
+      "date": "19.02.2021",
+      "dir": 0,
       "done": false
     }
   ]

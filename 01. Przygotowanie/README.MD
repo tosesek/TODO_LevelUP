@@ -1,6 +1,5 @@
 Projekt aplikacji :ballot_box_with_check: TODO dla akademii programowania LevelUP
 
-
 ## Zaczynamy!
 
 Najpierw należy przygotować środowisko, w którym będziemy pracować.
@@ -31,9 +30,9 @@ npm install -D styled-components @types/styled-components
 
 Dokumentację tej biblioteki znajdziesz [tutaj](https://styled-components.com/docs).
 
-### Mała uwaga
+#### Mała uwaga
 
-`styled-components` nie jest w pełni wspierany przez NextJS, dlatego przy odświeżeniu strony, może nie załadować poprawnie wyglądu strony. Gdy mamy tylko jeden plik strony, jest to problematyczne, ponieważ musimy zresetować serwer aplikacji kombinacją `ctrl` + `C`. Zobaczymy pytanie, czy na pewno chcemy przerwać zadanie, klikamy `Y` i uruchamiamy nasz serwer ponownie. Gdy mamy więcej stron, wystarczy kliknąć link odnoszący się do kolejnej strony, i wrócić na stronę, którą odświeżaliśmy.
+`styled-components` nie jest w pełni wspierany przez NextJS, dlatego po naprawieniu błędu i po odświeżeniu strony, może nie załadować poprawnie wyglądu strony. Gdy mamy tylko jeden plik strony, jest to problematyczne, ponieważ musimy zresetować serwer aplikacji kombinacją `ctrl` + `C`. Zobaczymy pytanie, czy na pewno chcemy przerwać zadanie, klikamy `Y` i uruchamiamy nasz serwer ponownie. Gdy mamy więcej stron, wystarczy kliknąć link odnoszący się do kolejnej strony, i wrócić na stronę, którą odświeżaliśmy.
 
 <br/>
 
