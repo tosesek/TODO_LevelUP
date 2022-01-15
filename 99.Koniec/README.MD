@@ -38,6 +38,8 @@ Dokumentację tej biblioteki znajdziesz [tutaj](https://styled-components.com/do
 
 `styled-components` nie jest w pełni wspierany przez NextJS, dlatego przy odświeżeniu strony, może nie załadować poprawnie wyglądu strony. Gdy mamy tylko jeden plik strony, jest to problematyczne, ponieważ musimy zresetować serwer aplikacji kombinacją `ctrl` + `c`. Zobaczymy pytanie, czy na pewno chcemy przerwać zadanie, klikamy `Y` i uruchamiamy nasz serwer ponownie.
 
+<br/>
+
 Na razie tyle nam wystarczy. Można zacząć pisać :pencil2:.
 
 Otwórz folder z aplikacją w ulubionym edytorze, np VS Code. Jeżeli masz uruchomiony terminal, wystarczy że wpiszesz tą komendę:
