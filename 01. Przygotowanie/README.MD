@@ -16,7 +16,7 @@ Repozytoria npm zawierają wiele bibliotek ułatwiających pracę. Jedną z nich
 Tworzy ona podstawowy szablon aplikacji. Nie pozostaje nam nic innego, jak uruchomić komendę:
 
 ```bash
-npx create-react-app --ts .
+npx create-next-app --ts .
 ```
 
 Parametr `--ts` określa składnię w jakiej będzie pisana aplikacja. Dokładniej mówiąc, jest to `typescript`. Różni się on od zwykłego Javascript między innymi typowaniem zmiennych. Pozwala to nam "filtrować" wartości przesyłane do funkcji i komponentów, co może ograniczyć ilość błędów. Przy próbie przypisania wartości innego typu niż typ zmiennej React wyświetli nam opdowiedni komunikat.
