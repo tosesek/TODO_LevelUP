@@ -1,4 +1,4 @@
-# Projekt aplikacji :ballot_box_check: TODO
+Projekt aplikacji :ballot_box_with_check: TODO dla akademii programowania LevelUP
 
 # 01.Przygotowanie
 
@@ -759,3 +759,19 @@ W konsoli w przeglądarce (`F12`) widzimy, w jakiej fromie zapisana jest odpowie
 ### Coś nie działa? Nie ma problemu!
 
 Pliki z tej części poradnika znajdziesz [na tej stronie](https://github.com/Tomsonikus/TODO_LevelUP/tree/main/03.React)
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+Projekt aplikacji :ballot_box_with_check: TODO dla akademii programowania LevelUP
+
+# 04.Dynamiczne strony NextJS
