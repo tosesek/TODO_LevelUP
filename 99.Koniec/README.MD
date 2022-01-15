@@ -209,6 +209,7 @@ Zwraca nam error. Próbujemy zaimportować zmienną `resolvers` z pliku, który 
 Zakładamy, że nasza aplikacja się rozrośnie w coś większego, dlatego 'odpowiedzi' API rozbijemy na mniejsze pliki.
 
 Głównym plikiem jest index. W nim zaimportujemy funkcje, które ma wykonać serwer, gdy zostanie o coś 'zapytany'.
+
 :file_folder: `/pages/api/resolvers/index.js`
 
 ```js
@@ -227,6 +228,7 @@ export default resolvers;
 Jak pewnie się domyślacie, potrzebne będą jeszcze 2 pliki. To w nich będzie się działa cała 'magia' :sparkles:
 
 Zajmiemy się plikiem
+
 :file_folder: `/pages/api/resolvers/todos.js`
 
 ```js
@@ -240,6 +242,7 @@ export default todos;
 Powyższy kod nie robi nic innego jak importuje nasz plik danych, oraz zwraca listę todos. Na początek to nam wystarczy.
 
 Analogicznie piszemy plik
+
 :file_folder: `/pages/api/resolvers/directories.js`
 
 ```js
@@ -397,6 +400,7 @@ const StyledTitle = styled.div`
 ```
 
 Teraz wykorzystaj komponent wewnątrz `<StyledDiv>`. Nasz index powinien wyglądać następująco:
+
 :file_folder: `/pages/index.tsx`
 
 ```tsx
@@ -471,6 +475,7 @@ export default client;
 - `cache` określa, jak mają być przechowywane dane tymczasowe.
 
 Teraz musimy zmienić naszą stronę domową.
+
 :file_folder: `/pages/index.tsx`
 
 ```tsx
@@ -522,6 +527,7 @@ export default Home;
 
 Kolejnym krokiem jest napisanie komponentów, tym razem w składni Reacta.
 Pierwszym komponentem będzie lista katalogów.
+
 :file_folder: `/components/directories.tsx`
 
 ```tsx
