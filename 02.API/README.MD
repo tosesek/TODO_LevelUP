@@ -192,5 +192,5 @@ Aplikację będziemy pisać na składni `Typescript`, ale dla uproszczenia, API 
 
 Dodatkowo API można rozbudować o system logowania, rejestracji oraz listę zadań osobną dla każdego użytkownika, jednak to zadanie pozostawiam chętnym.
 
-### Coś nie działą? Nie ma problemu!
+### Coś nie działa? Nie ma problemu!
 Pliki z tej części poradnika znajdziesz [na tej stronie](https://github.com/Tomsonikus/TODO_LevelUP/tree/main/02.API).
