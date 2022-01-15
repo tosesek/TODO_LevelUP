@@ -351,6 +351,8 @@ const StyledDir = styled.button`
   padding: 10px 25px;
   width: 100%;
   text-align: left;
+  color: white;
+  margin-bottom: 10px;
 `;
 
 const Dir = ({ name, url }: DirProps) => {
@@ -374,3 +376,69 @@ Tak przygotowany komponent pozwoli nam na wykorzystanie go do wyświetlenia kata
 
 ### Czas na pierwsze zapytanie do API
 
+Wcześniej napisałem, że to w `index.tsx` będzie wywołane zapytanie do API. Jest to tylko częściowo prawdą. Samo zapytanie będzie napisane w pliku `/components/Directories.tsx`. Jednak wywołanie będzie wewnątrz znacznika `<ApolloProvider>`.
+Dzieje się tak, ponieważ komponent jest wywołany wewnątrz tego znacznika.
+
+W rozdziale 2 podałem przykładowe zapytania do serwera. Tutaj użyjemy jednego z nich.
+
+```tsx
+const query = gql`
+  query Dirs {
+    getDirectories {
+      id
+      name
+    }
+  }
+`;
+```
+
+Zapytanie prosi serwer o podanie katalogów `getDirectories`, a dokładniej `id` i `name`. Jednak samo przypisanie zapytania do zmiennej nic nam nie da. Musimy go użyć. Pozwoli nam na to biblioteka `@apollo/client`.
+
+:file_folder: `/components/Directories.tsx`
+
+```tsx
+import { gql, useQuery } from "@apollo/client";
+import styled from "styled-components";
+import Dir from "./Dir";
+
+const query = gql`
+  query Dirs {
+    getDirectories {
+      id
+      name
+    }
+  }
+`;
+
+const StyledDirectories = styled.div`
+  position: relative;
+  display: block;
+  padding: 10px;
+  margin: 15px auto;
+  height: 80vh;
+`;
+
+const Directories = () => {
+  const { loading, error, data } = useQuery(query);
+  if (loading) return <div>Loading data from API</div>;
+  if (error)
+    return (
+      <div>
+        Error : <br /> {error}
+      </div>
+    );
+  console.log(data);
+  return (
+    <StyledDirectories>
+      {data.getDirectories.map((directory: any) => (
+        <Dir name={directory.name} key={directory.id} url={directory.id} />
+      ))}
+    </StyledDirectories>
+  );
+};
+export default Directories;
+```
+
+`const { loading, error, data } = useQuery(query);` useQuery dostarcza nam 3 dane. `loading` określa, czy dane się jeszcze ładują, `error` czy wystąpił jakiś błąd, no i `data` czyli odpowiedź z serwera.
+W konsoli w przeglądarce (`F12`) widzimy, w jakiej fromie zapisana jest odpowiedź z serwera.
+`data.getDirectories.map()` pozwala nam przejść po każdym elemencie tablicy, i wykonać kod. Więcej o [array.map](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
