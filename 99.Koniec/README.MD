@@ -107,7 +107,7 @@ npm install -D apollo-server-micro micro graphql
 
 Naszą bazą danych będzie plik w formacie JSON. Pierwszym zadaniem jest utworzenie pliku odpowiedzialnego za przechowywanie danych.
 
-`/pages/api/data/data.json`
+:file_folder: `/pages/api/data/data.json`
 
 ```json
 {
@@ -150,7 +150,7 @@ W tym miejscu rezygnujemy z gotowej trasy API. Odpowiada za nią plik `/pages/ap
 
 Zanim zajmiemy się uruchomieniem naszego API, musimy dodać kilka wymaganych plików. Pierwszym z nich jest definicja schematów czyli tras i typów danych.
 
-`/pages/api/schemas/index.js`
+:file_folder: `/pages/api/schemas/index.js`
 
 ```js
 import { gql } from "apollo-server-micro";
@@ -183,7 +183,7 @@ Określenie typu w nawiasach klamrowych, np. `[directory]`, mówi nam o tym, że
 
 Kolejnym etapem jest zainicjowanie API.
 
-`/pages/api/graphql.js`
+:file_folder: `/pages/api/graphql.js`
 
 ```js
 import { ApolloServer } from "apollo-server-micro";
@@ -224,7 +224,8 @@ Zwraca nam error. Próbujemy zaimportować zmienną `resolvers` z pliku, który 
 Zakładamy, że nasza aplikacja się rozrośnie w coś większego, dlatego 'odpowiedzi' API rozbijemy na mniejsze pliki.
 
 Głównym plikiem jest index. W nim zaimportujemy funkcje, które ma wykonać serwer, gdy zostanie o coś 'zapytany'.
-`/pages/api/resolvers/index.js`
+
+:file_folder :`/pages/api/resolvers/index.js`
 
 ```js
 import getTodos from "./todos";
@@ -243,7 +244,9 @@ export default resolvers;
 
 Jak pewnie się domyślacie, potrzebne będą jeszcze 2 pliki. To w nich będzie się działa cała 'magia' :sparkles:
 
-Zajmiemy się plikiem `/pages/api/resolvers/todos.js`
+Zajmiemy się plikiem
+
+:file_folder: `/pages/api/resolvers/todos.js`
 
 ```js
 let data = require("../data/data.json");
@@ -259,7 +262,9 @@ export default todos;
 
 Powyższy kod nie robi nic innego jak importuje nasz plik danych, oraz zwraca listę todos. Na początek to nam wystarczy.
 
-Analogicznie piszemy plik `/pages/api/resolvers/directories.js`
+Analogicznie piszemy plik
+
+:file_folder: `/pages/api/resolvers/directories.js`
 
 ```js
 let data = require("../data/data.json");
