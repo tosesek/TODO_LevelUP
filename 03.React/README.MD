@@ -442,3 +442,7 @@ export default Directories;
 `const { loading, error, data } = useQuery(query);` useQuery dostarcza nam 3 dane. `loading` określa, czy dane się jeszcze ładują, `error` czy wystąpił jakiś błąd, no i `data` czyli odpowiedź z serwera.
 W konsoli w przeglądarce (`F12`) widzimy, w jakiej fromie zapisana jest odpowiedź z serwera.
 `data.getDirectories.map()` pozwala nam przejść po każdym elemencie tablicy, i wykonać kod. Więcej o [array.map](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
+
+### Coś nie działa? Nie ma problemu!
+
+Pliki z tej części poradnika znajdziesz [na tej stronie](https://github.com/Tomsonikus/TODO_LevelUP/tree/main/03.React)
