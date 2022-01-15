@@ -1,0 +1,24 @@
+{
+  "directories": [
+    { "id": 0, "name": "Dom" },
+    { "id": 1, "name": "Szkoła" }
+  ],
+  "todos": [
+    {
+      "id": 0,
+      "title": "Kartkówka z Angielskiego",
+      "desc": "Nauczyć się na kartkówkę ze słówek z działu Jedzenie",
+      "date": "15.02.2021",
+      "dir": "Szkoła",
+      "done": false
+    },
+    {
+      "id": 1,
+      "title": "Wypracowanie z Angielskiego",
+      "desc": "Napisać rozprawkę na jeden z tematów maturalnych z Polskiego",
+      "date": "15.02.2021",
+      "dir": "Szkoła",
+      "done": false
+    }
+  ]
+}
